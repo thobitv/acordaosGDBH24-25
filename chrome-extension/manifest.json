@@ -3,6 +3,7 @@
   "name": "Extrator de Acórdãos - Falcão",
   "version": "1.0.0",
   "description": "Extrai automaticamente o inteiro teor dos acórdãos do Sistema Falcão e salva no Google Drive",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmw5WwwNwjkkqIGcs1GRjoZOD9aIc5gUh/c7PkkHb43wpSzjw4LpzXAzFugB5zoplz832PLrTWPrOBXr+BdmN+nVKrsqb+RcDNtRB7JMbMcOqzFPivztZ4oXCQ2f/Uk1emDr34pMUmiIye+oE/iphKWOoyjSHl0trcDU3js1OX2judxeFCUa0Qa+HALklsZCylx3Nu2KNPr/5AiP3/kIeaOfjiN5KyfXR47n2UT1jb8gCxFNwSAGIm4fGkhA9Ud9Y0EVpkqXCvAjZqSL+q6tVukqkwf3Rfqz19k9CICqMANfgPSbbHKgb/vmhY9ank0qHKufo4zcgykIbr6U3TcYXbQIDAQAB",
   "permissions": [
     "activeTab",
     "storage",

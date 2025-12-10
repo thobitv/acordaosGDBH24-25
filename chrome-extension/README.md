@@ -44,7 +44,7 @@ Para a extensão se conectar ao Google Drive, você precisa criar credenciais OA
    - Clique em "Criar credenciais" → "ID do cliente OAuth"
    - Tipo: **Extensão do Chrome**
    - Nome: "Extrator de Acórdãos"
-   - ID do item: (deixe em branco por enquanto, ou use o ID após publicar)
+   - **ID do item:** `oicpcknpadpfblbcgibpikphhdfkmomk` (este é o ID fixo da extensão)
 
 6. Copie o **Client ID** gerado (algo como `123456789.apps.googleusercontent.com`)
 
