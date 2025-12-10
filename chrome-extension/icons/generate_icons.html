@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gerador de Ícones</title>
+</head>
+<body>
+  <h1>Gerador de Ícones para Extensão</h1>
+  <p>Clique nos botões para baixar os ícones:</p>
+
+  <canvas id="canvas" style="display:none;"></canvas>
+
+  <button onclick="generateIcon(16)">Baixar 16x16</button>
+  <button onclick="generateIcon(32)">Baixar 32x32</button>
+  <button onclick="generateIcon(48)">Baixar 48x48</button>
+  <button onclick="generateIcon(128)">Baixar 128x128</button>
+
+  <script>
+    function generateIcon(size) {
+      const canvas = document.getElementById('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // Background gradient
+      const gradient = ctx.createLinearGradient(0, 0, size, size);
+      gradient.addColorStop(0, '#1a73e8');
+      gradient.addColorStop(1, '#0d5bba');
+
+      // Circle background
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size/2 - 2, 0, Math.PI * 2);
+      ctx.fillStyle = gradient;
+      ctx.fill();
+
+      // Document icon (simplified)
+      ctx.fillStyle = 'white';
+      const docX = size * 0.3;
+      const docY = size * 0.2;
+      const docW = size * 0.4;
+      const docH = size * 0.6;
+
+      ctx.beginPath();
+      ctx.moveTo(docX, docY);
+      ctx.lineTo(docX + docW * 0.6, docY);
+      ctx.lineTo(docX + docW, docY + docH * 0.2);
+      ctx.lineTo(docX + docW, docY + docH);
+      ctx.lineTo(docX, docY + docH);
+      ctx.closePath();
+      ctx.fill();
+
+      // Lines
+      ctx.fillStyle = '#1a73e8';
+      const lineH = size * 0.04;
+      for (let i = 0; i < 3; i++) {
+        ctx.fillRect(docX + size*0.05, docY + docH*0.4 + i*lineH*2, docW*0.6, lineH);
+      }
+
+      // Download
+      const link = document.createElement('a');
+      link.download = 'icon' + size + '.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+  </script>
+</body>
+</html>

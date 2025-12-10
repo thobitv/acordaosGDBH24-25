@@ -1,10 +1,46 @@
-# Scraper de Acórdãos - Sistema Falcão
+# Extrator de Acórdãos - Sistema Falcão
 
 Este projeto automatiza a coleta de acórdãos do [Sistema Falcão](https://jurisprudencia.jt.jus.br/jurisprudencia-nacional/pesquisa) da Justiça do Trabalho, com filtros específicos para:
 
 - **Tribunal:** TRT21 (Rio Grande do Norte)
 - **Magistrado:** Bento Herculano Duarte Neto
 - **Período:** 01/01/2024 a 04/07/2025
+
+## Opções Disponíveis
+
+Este projeto oferece **duas abordagens** para extrair os acórdãos:
+
+| Abordagem | Descrição | Quando Usar |
+|-----------|-----------|-------------|
+| **Extensão Chrome** | Você faz login e busca, a extensão extrai e salva no Google Drive | Recomendado - mais confiável |
+| **Scripts Python** | Automação completa via Selenium ou Requests | Para desenvolvedores |
+
+---
+
+## Opção 1: Extensão Chrome (Recomendado)
+
+A extensão do Chrome permite que você:
+1. Faça login manualmente no Sistema Falcão
+2. Realize a busca com os filtros desejados
+3. Clique em "Iniciar Extração" na extensão
+4. Os acórdãos são salvos automaticamente no seu Google Drive
+
+### Instalação Rápida
+
+1. Abra `chrome://extensions/` no Chrome
+2. Ative o "Modo do desenvolvedor"
+3. Clique em "Carregar sem compactação"
+4. Selecione a pasta `chrome-extension/`
+
+**Documentação completa:** [chrome-extension/README.md](chrome-extension/README.md)
+
+### Configuração do Google Drive
+
+Você precisará criar credenciais OAuth no Google Cloud Console. Siga as instruções detalhadas no [README da extensão](chrome-extension/README.md#passo-1-configurar-google-cloud-console).
+
+---
+
+## Opção 2: Scripts Python
 
 ## Requisitos
 

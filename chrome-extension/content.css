@@ -1,0 +1,102 @@
+/* Estilos injetados na página do Sistema Falcão */
+
+/* Indicador de extração */
+#extrator-falcao-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #1a73e8, #0d5bba);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 13px;
+  z-index: 2147483647;
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+  display: none;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+#extrator-falcao-indicator.active {
+  display: flex;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+#extrator-falcao-indicator .spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Destacar item sendo extraído */
+.extrator-falcao-highlight {
+  outline: 3px solid #1a73e8 !important;
+  outline-offset: 2px;
+  background-color: rgba(26, 115, 232, 0.1) !important;
+  transition: all 0.3s ease;
+}
+
+/* Marcar itens já extraídos */
+.extrator-falcao-extracted {
+  position: relative;
+}
+
+.extrator-falcao-extracted::after {
+  content: '✓';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #28a745;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 1000;
+}
+
+/* Marcar itens com erro */
+.extrator-falcao-error {
+  position: relative;
+}
+
+.extrator-falcao-error::after {
+  content: '✕';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #dc3545;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  z-index: 1000;
+}

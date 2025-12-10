@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extrator de Acórdãos</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Extrator de Acórdãos</h1>
+      <p class="subtitle">Sistema Falcão → Google Drive</p>
+    </header>
+
+    <!-- Status de Conexão -->
+    <section class="status-section">
+      <div class="status-item">
+        <span class="status-label">Sistema Falcão:</span>
+        <span id="falcao-status" class="status-badge disconnected">Desconectado</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">Google Drive:</span>
+        <span id="drive-status" class="status-badge disconnected">Desconectado</span>
+      </div>
+    </section>
+
+    <!-- Login Google Drive -->
+    <section id="drive-login-section" class="section">
+      <button id="btn-connect-drive" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm6.369 14.648l-1.479 2.559H7.11l1.479-2.559h9.78zm-10.28-1l-1.479-2.559 4.89-8.47 1.479 2.559-4.89 8.47zm5.54-8.47l4.89 8.47h-2.959l-4.89-8.47h2.959z"/>
+        </svg>
+        Conectar ao Google Drive
+      </button>
+      <button id="btn-disconnect-drive" class="btn btn-secondary hidden">
+        Desconectar do Drive
+      </button>
+    </section>
+
+    <!-- Configurações -->
+    <section id="config-section" class="section">
+      <h2>Configurações</h2>
+
+      <div class="form-group">
+        <label for="folder-name">Nome da pasta no Drive:</label>
+        <input type="text" id="folder-name" value="Acórdãos Falcão" placeholder="Nome da pasta">
+      </div>
+
+      <div class="form-group">
+        <label for="file-format">Formato do arquivo:</label>
+        <select id="file-format">
+          <option value="txt">Texto (.txt)</option>
+          <option value="docx">Word (.docx)</option>
+          <option value="pdf">PDF (.pdf)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="delay-time">Delay entre extrações (ms):</label>
+        <input type="number" id="delay-time" value="2000" min="500" max="10000" step="500">
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="include-metadata" checked>
+        <label for="include-metadata">Incluir metadados (número, data, relator)</label>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="consolidate-file" checked>
+        <label for="consolidate-file">Criar arquivo consolidado</label>
+      </div>
+    </section>
+
+    <!-- Controles de Extração -->
+    <section id="extraction-section" class="section">
+      <h2>Extração</h2>
+
+      <div id="page-info" class="info-box">
+        <p>Acesse o <a href="https://jurisprudencia.jt.jus.br/jurisprudencia-nacional/pesquisa" target="_blank">Sistema Falcão</a>, faça login e realize sua busca.</p>
+        <p>Depois clique em "Iniciar Extração".</p>
+      </div>
+
+      <div id="results-info" class="info-box hidden">
+        <p><strong>Resultados encontrados:</strong> <span id="total-results">0</span></p>
+        <p><strong>Página atual:</strong> <span id="current-page">1</span></p>
+      </div>
+
+      <div class="btn-group">
+        <button id="btn-start" class="btn btn-success" disabled>
+          Iniciar Extração
+        </button>
+        <button id="btn-pause" class="btn btn-warning hidden">
+          Pausar
+        </button>
+        <button id="btn-stop" class="btn btn-danger hidden">
+          Parar
+        </button>
+      </div>
+    </section>
+
+    <!-- Progresso -->
+    <section id="progress-section" class="section hidden">
+      <h2>Progresso</h2>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+        <span id="progress-text" class="progress-text">0%</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-value" id="extracted-count">0</span>
+          <span class="stat-label">Extraídos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="saved-count">0</span>
+          <span class="stat-label">Salvos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="error-count">0</span>
+          <span class="stat-label">Erros</span>
+        </div>
+      </div>
+
+      <div id="current-item" class="current-item">
+        <span class="label">Processando:</span>
+        <span id="current-item-text">-</span>
+      </div>
+    </section>
+
+    <!-- Log -->
+    <section id="log-section" class="section">
+      <h2>
+        Log
+        <button id="btn-clear-log" class="btn-small">Limpar</button>
+      </h2>
+      <div id="log-container" class="log-container">
+        <p class="log-entry info">Extensão carregada. Aguardando configuração...</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>v1.0.0 | <a href="#" id="btn-help">Ajuda</a></p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
