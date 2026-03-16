@@ -51,8 +51,8 @@ class FalcaoAPIClient:
     # Configurações de filtro
     TRIBUNAL = "TRT21"
     MAGISTRADO = "Bento Herculano Duarte Neto"
-    DATA_INICIO = "2024-01-01"
-    DATA_FIM = "2025-07-04"
+    DATA_INICIO = "2022-01-01"
+    DATA_FIM = "2023-12-31"
 
     def __init__(self):
         self.session = requests.Session()
@@ -384,7 +384,7 @@ class FalcaoAPIClient:
         with open(txt_path, 'w', encoding='utf-8') as f:
             f.write("=" * 80 + "\n")
             f.write("ACÓRDÃOS - DESEMBARGADOR BENTO HERCULANO DUARTE NETO\n")
-            f.write(f"TRT21 - Período: 01/01/2024 a 04/07/2025\n")
+            f.write(f"TRT21 - Período: 01/01/2022 a 31/12/2023\n")
             f.write(f"Gerado em: {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}\n")
             f.write(f"Total de acórdãos: {len(self.acordaos)}\n")
             f.write("=" * 80 + "\n\n")

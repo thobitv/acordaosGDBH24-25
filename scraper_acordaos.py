@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Scraper para coleta de acórdãos do Sistema Falcão (Justiça do Trabalho)
-Filtra por: TRT21, Magistrado Bento Herculano Duarte Neto, Período 2024-2025
+Filtra por: TRT21, Magistrado Bento Herculano Duarte Neto, Período 2022-2023
 """
 
 import os
@@ -57,8 +57,8 @@ class FalcaoScraper:
     # Configurações de filtro
     TRIBUNAL = "TRT21"
     MAGISTRADO = "Bento Herculano Duarte Neto"
-    DATA_INICIO = "01/01/2024"
-    DATA_FIM = "04/07/2025"
+    DATA_INICIO = "01/01/2022"
+    DATA_FIM = "31/12/2023"
 
     def __init__(self, headless: bool = True, browser: str = "chrome"):
         """
@@ -311,7 +311,7 @@ class FalcaoScraper:
             return False
 
     def apply_period_filter(self):
-        """Aplica filtro de período (01/01/2024 a 04/07/2025)."""
+        """Aplica filtro de período (01/01/2022 a 31/12/2023)."""
         logger.info(f"Aplicando filtro de período: {self.DATA_INICIO} a {self.DATA_FIM}")
 
         try:
