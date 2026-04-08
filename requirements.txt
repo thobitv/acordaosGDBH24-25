@@ -1,3 +1,4 @@
+# Scraper de acórdãos (módulo original)
 selenium>=4.15.0
 webdriver-manager>=4.0.0
 requests>=2.31.0
@@ -5,3 +6,11 @@ beautifulsoup4>=4.12.0
 lxml>=4.9.0
 pandas>=2.0.0
 tqdm>=4.66.0
+
+# Anonimizador Jurídico (Res. CNJ n. 615/2024)
+pymupdf>=1.23.0          # PyMuPDF – leitura e edição de PDFs (fitz)
+spacy>=3.7.0             # NER em português
+
+# Opcional – OCR para PDFs digitalizados (imagem)
+# pdf2image>=1.16.0
+# pytesseract>=0.3.10
